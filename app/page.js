@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Html5QrcodePlugin from './scanner'
+import { Html5Qrcode } from 'html5-qrcode';
 import axios from 'axios';
 
 const App = (props) => {
@@ -42,7 +43,7 @@ const App = (props) => {
         />
       </div>
 
-      {modal ? <div className='w-full h-full bg-black/80 fixed left-0 top-0 flex justify-center items-center'>
+      {modal ? <div className='w-full h-full bg-black/80 fixed left-0 top-0 flex justify-center items-center z-[9999]'>
         <div className='w-[300px] text-black h-[300px] bg-white flex justify-center items-center flex-col gap-[10px]'>
           <div className='flex flex-col justify-center items-center'>
             <p>{product[0].barcode}</p>
