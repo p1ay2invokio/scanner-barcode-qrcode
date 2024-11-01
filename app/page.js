@@ -7,6 +7,8 @@ import axios from 'axios';
 
 const App = (props) => {
 
+  const qrcodeRegionId = "html5qr-code-full-region";
+
   let [modal, setModal] = useState(false)
   let [found, setFound] = useState(false)
 
@@ -32,16 +34,17 @@ const App = (props) => {
       qty: qty
     }).then((res) => {
       console.log(res.data)
+      setFound(false)
     })
   }
 
   return (
     <div>
-      <div>
+      {found ? null : <div>
         <Html5QrcodePlugin
           qrCodeSuccessCallback={onNewScanResult}
         />
-      </div>
+      </div>}
 
       {modal ? <div className='w-full h-full bg-black/80 fixed left-0 top-0 flex justify-center items-center z-[9999]'>
         <div className='w-[300px] text-black h-[300px] bg-white flex justify-center items-center flex-col gap-[10px]'>

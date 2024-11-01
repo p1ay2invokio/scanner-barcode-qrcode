@@ -45,7 +45,7 @@ const Html5QrcodePlugin = (props) => {
     }, []);
 
     return (
-        <div id={qrcodeRegionId} />
+        <div className='z-[-999]' id={qrcodeRegionId} />
     );
 };
 
