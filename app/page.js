@@ -21,7 +21,7 @@ const App = (props) => {
     console.log(decodedText)
     console.log("Found")
     setFound(true)
-    axios.get(`https://192.168.1.2/api/product/${decodedText}`).then((res) => {
+    axios.get(`https://hellos.playtwo.online/api/product/${decodedText}`).then((res) => {
       console.log(res.data)
       setProduct(res.data)
       setModal(true)
@@ -30,7 +30,7 @@ const App = (props) => {
   };
 
   const updateProduct = (barcode, qty) => {
-    axios.patch('https://192.168.1.2/api/update_quantity', {
+    axios.patch('https://hellos.playtwo.online/api/update_quantity', {
       barcode: barcode,
       qty: qty
     }).then((res) => {
@@ -39,7 +39,7 @@ const App = (props) => {
     })
   }
 
-  
+
 
   return (
     <div>
