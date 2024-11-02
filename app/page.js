@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Html5QrcodePlugin from './scanner'
 import { Html5Qrcode } from 'html5-qrcode';
 import axios from 'axios';
@@ -14,6 +14,7 @@ const App = (props) => {
 
   let [product, setProduct] = useState([])
   let [qtyup, setQtyUp] = useState(null)
+  let qrRef = useRef(null)
 
   const onNewScanResult = (decodedText, decodedResult) => {
     // handle decoded results here
@@ -40,11 +41,11 @@ const App = (props) => {
 
   return (
     <div>
-      {found ? null : <div>
+      <div>
         <Html5QrcodePlugin
           qrCodeSuccessCallback={onNewScanResult}
         />
-      </div>}
+      </div>
 
       {modal ? <div className='w-full h-full bg-black/80 fixed left-0 top-0 flex justify-center items-center z-[9999]'>
         <div className='w-[300px] text-black h-[300px] bg-white flex justify-center items-center flex-col gap-[10px]'>

@@ -36,16 +36,10 @@ const Html5QrcodePlugin = (props) => {
         const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, {fps: 10, qrbox: {width: 500, height: 500}}, false);
         html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
 
-        // cleanup function when component will unmount
-        return () => {
-            html5QrcodeScanner.clear().catch(error => {
-                console.error("Failed to clear html5QrcodeScanner. ", error);
-            });
-        };
     }, []);
 
     return (
-        <div className='z-[-999]' id={qrcodeRegionId} />
+        <div id={qrcodeRegionId} />
     );
 };
 
